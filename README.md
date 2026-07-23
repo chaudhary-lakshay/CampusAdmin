@@ -65,3 +65,7 @@ The API documentation for CampusAdmin is auto-generated and accessible through S
 ## Conclusion
 
 The CampusAdmin project provides a comprehensive solution for managing student records efficiently using modern web technologies. With the integration of Swagger UI, API testing and documentation have become seamless, enhancing the overall development and user experience.
+
+## Contributing
+
+Issues here are **first come, first merged**. Assignment is not reservation: if an issue is assigned to someone and you open a working PR first, yours is the one that gets merged. Commenting "I'd like to work on this" is welcome and I'll assign it, but it does not hold the issue against a PR that arrives sooner. If you want an issue, the reliable way to get it is to open the PR.
