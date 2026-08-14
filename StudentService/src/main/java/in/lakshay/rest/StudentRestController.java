@@ -54,53 +54,26 @@ public class StudentRestController {
 	
 	@GetMapping("/find/{id}")
 	public ResponseEntity<?> findOneStudent(@PathVariable Long id) {
-		ResponseEntity<?> resp = null;
-		try {
-			Student student =  service.findOneStudent(id);
-			resp = new ResponseEntity<Student>(student,HttpStatus.OK);
-		} catch (StudentNotFoundException e) {
-			e.printStackTrace();
-			throw e;
-		}
-		return resp;
+		Student student = service.findOneStudent(id);
+		return new ResponseEntity<Student>(student, HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/remove/{id}")
 	public ResponseEntity<String> deleteStudent(@PathVariable Long id) {
-		ResponseEntity<String> resp = null;
-		try {
-			service.deleteOneStudent(id);
-			resp = new ResponseEntity<String>("Student Deleted",HttpStatus.OK);
-		} catch (StudentNotFoundException e) {
-			e.printStackTrace();
-			throw e;
-		}
-		return resp;
+		service.deleteOneStudent(id);
+		return new ResponseEntity<String>("Student Deleted",HttpStatus.OK);
 	}
  	
 	@PutMapping("/modify")
 	public ResponseEntity<String> updateStudent(@RequestBody Student student) {
-		ResponseEntity<String> response = null;
-		try {
-			service.updateStudent(student);
-			response = new ResponseEntity<String>("Student Updated!",HttpStatus.OK);
-		} catch (StudentNotFoundException e) {
-			e.printStackTrace();
-			throw e;
-		}
-		return response;
+		service.updateStudent(student);
+		return new ResponseEntity<String>("Student Updated!",HttpStatus.OK);
 	}
 	
 	@PatchMapping("/modify/name/{id}/{name}")
 	public ResponseEntity<String> updateStudentName(@PathVariable Long id, @PathVariable String name) {
-		ResponseEntity<String> response = null;
-		try {
-			service.updateStudentName(name, id);
-			response = new ResponseEntity<String>("Student Name Updated!",HttpStatus.OK);
-		} catch (StudentNotFoundException e) {
-			e.printStackTrace();
-			throw e;
-		}
-		return response;
+		service.updateStudentName(name, id);
+		return new ResponseEntity<String>("Student Name Updated!",HttpStatus.OK);
 	}
 }
+

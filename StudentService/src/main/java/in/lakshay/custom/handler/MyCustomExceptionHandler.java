@@ -16,12 +16,10 @@ public class MyCustomExceptionHandler {
 
     @ExceptionHandler(StudentNotFoundException.class)  
     public ResponseEntity<String> handleStudentNotFoundException(
-            StudentNotFoundException e
-    ) {
-        System.out.println(e.getMessage());
+            StudentNotFoundException e) {
         
         return new ResponseEntity<String>(
                 e.getMessage(),
-                HttpStatus.INTERNAL_SERVER_ERROR);
+                HttpStatus.NOT_FOUND);
     }
 }
