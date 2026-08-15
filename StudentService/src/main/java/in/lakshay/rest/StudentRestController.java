@@ -1,9 +1,5 @@
 package in.lakshay.rest;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -41,16 +37,15 @@ public class StudentRestController {
 	}
 	
 	@GetMapping("/all")
-	public ResponseEntity<Map<String, Object>> findAllStudents(
+	public ResponseEntity<StudentPageResponse> findAllStudents(
 	        @RequestParam(defaultValue = "0") int page,
 	        @RequestParam(defaultValue = "10") int size) {
 	    Page<Student> studentPage = service.findStudentsWithPagination(page, size);
-
-	    Map<String, Object> response = new HashMap<>();
-	    response.put("students", studentPage.getContent());
-	    response.put("currentPage", studentPage.getNumber());
-	    response.put("totalItems", studentPage.getTotalElements());
-	    response.put("totalPages", studentPage.getTotalPages());
+	    StudentPageResponse response = new StudentPageResponse(
+	            studentPage.getContent(),
+	            studentPage.getNumber(),
+	            studentPage.getTotalElements(),
+	            studentPage.getTotalPages());
 
 	    return new ResponseEntity<>(response, HttpStatus.OK);
 	}
