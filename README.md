@@ -20,6 +20,16 @@ CampusAdmin is a web application designed to manage student information efficien
 - **API Communication**: RESTful APIs
 - **API Documentation**: Swagger UI
 
+## Configuration
+
+| Variable | Default value |
+| --- | --- |
+| `DB_URL` | `jdbc:mysql://localhost:3306/student_db` |
+| `DB_USER` | `campusadmin` |
+| `DB_PASSWORD` | Empty |
+
+Set these variables to connect to a different database or use different credentials. The previous default username was `root`; existing local setups should set `DB_USER` explicitly if they still use that account.
+
 ## Installation Instructions
 1. **Clone the Repository**
    ```bash
@@ -29,17 +39,7 @@ CampusAdmin is a web application designed to manage student information efficien
 
 2. **Set Up the Database**
    - Create a database in your preferred database management system.
-   - Configure the application with the environment variables below.
-
-## Configuration
-
-| Variable | Default value |
-| --- | --- |
-| `DB_URL` | `jdbc:mysql://localhost:3306/student_db` |
-| `DB_USER` | `campusadmin` |
-| `DB_PASSWORD` | Empty |
-
-Set these variables to connect to a different database or use different credentials.
+   - Configure the application with the environment variables in the Configuration section.
 
 3. **Run the Application**
    - Navigate to the project directory and run:
